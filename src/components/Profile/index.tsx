@@ -3,7 +3,7 @@ import {
   PersonalFooterInfo,
   PersonalInfo,
   RepositoryLink,
-} from './styles'
+} from './styles.ts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowUpRightFromSquare,
@@ -11,7 +11,7 @@ import {
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { UserContext } from '../../../contexts/UserContext'
+import { UserContext } from '../../contexts/UserContext.tsx'
 import { useContext } from 'react'
 
 export function Profile() {

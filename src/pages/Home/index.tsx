@@ -1,5 +1,5 @@
 import { Container } from './styles'
-import { Profile } from './Profile'
+import { Profile } from '../../components/Profile'
 
 export function Home() {
   return (
