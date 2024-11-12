@@ -36,7 +36,6 @@ export function UserProvider({ children }: UserContextProviderProps) {
 
   const getUser = useCallback(async () => {
     const response: GithubDataProps = await api.get('/dev-alves')
-    console.log(response.data)
     setUser({
       name: response?.data?.name,
       login: response?.data?.login,

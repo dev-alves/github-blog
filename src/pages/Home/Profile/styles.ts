@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  width: 54rem;
   border-radius: 10px;
   position: relative;
   padding: 32px;
@@ -18,22 +17,6 @@ export const Container = styled.div`
   background: ${(props) => props.theme['base-profile']};
   box-shadow: 0 0 2px #000000;
 
-  h2 {
-    color: ${(props) => props.theme['base-title']};
-    font-family: ${(props) => props.theme.stylesText['base-title-l'].fontFamily},
-      sans-serif;
-    line-height: ${(props) =>
-      props.theme.stylesText['base-title-l'].lineHeight};
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    color: ${(props) => props.theme['base-text']};
-    font-family: ${(props) => props.theme.stylesText['base-title-m'].fontFamily},
-      sans-serif;
-    margin-bottom: 1.4rem;
-  }
-
   a {
     color: ${(props) => props.theme.blue};
     font-family: ${(props) => props.theme.stylesText.link.fontFamily},
@@ -45,6 +28,25 @@ export const Container = styled.div`
 export const PersonalInfo = styled.section`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  h2 {
+    color: ${(props) => props.theme['base-title']};
+    font-family: ${(props) => props.theme.stylesText['base-title-l'].fontFamily},
+      sans-serif;
+    line-height: ${(props) =>
+      props.theme.stylesText['base-title-l'].lineHeight};
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    display: inline-block;
+    color: ${(props) => props.theme['base-text']};
+    font-family: ${(props) => props.theme.stylesText['base-title-m'].fontFamily},
+      sans-serif;
+    margin-bottom: 2.4375rem;
+  }
 `
 
 export const RepositoryLink = styled.div`
@@ -57,11 +59,18 @@ export const RepositoryLink = styled.div`
     margin-left: 8px;
     color: ${(props) => props.theme.blue};
   }
+
+  &:hover {
+    color: ${(props) => props.theme.blue};
+    border-bottom: 1px solid;
+  }
 `
 
-export const PersonalHeaderInfo = styled.header`
+export const PersonalFooterInfo = styled.footer`
   display: flex;
   flex-direction: row;
+  position: absolute;
+  bottom: 0;
 
   div:nth-child(2) {
     margin: 0 24px;

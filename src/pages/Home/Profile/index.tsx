@@ -1,6 +1,6 @@
 import {
   Container,
-  PersonalHeaderInfo,
+  PersonalFooterInfo,
   PersonalInfo,
   RepositoryLink,
 } from './styles'
@@ -24,13 +24,10 @@ export function Profile() {
         <img src={avatar} alt="" />
       </div>
       <PersonalInfo>
-        <div>
-          <h2>{name}</h2>
-        </div>
-        <div>
-          <p>{bio}</p>
-        </div>
-        <PersonalHeaderInfo>
+        <h2>{name}</h2>
+        <p>{bio}</p>
+        <div></div>
+        <PersonalFooterInfo>
           <div>
             <FontAwesomeIcon icon={faGithub} fontSize={18} />
             <span>{login}</span>
@@ -43,11 +40,13 @@ export function Profile() {
             <FontAwesomeIcon icon={faUserGroup} fontSize={18} />
             <span>{followers} seguidores</span>
           </div>
-        </PersonalHeaderInfo>
+        </PersonalFooterInfo>
       </PersonalInfo>
       <RepositoryLink>
-        <a href={url}>GITHUB</a>
-        <FontAwesomeIcon icon={faArrowUpRightFromSquare} fontSize={12} />
+        <a href={url}>
+          GITHUB
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} fontSize={12} />
+        </a>
       </RepositoryLink>
     </Container>
   )

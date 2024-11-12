@@ -1,9 +1,10 @@
 import { Container } from './styles'
+import { Profile } from './Profile'
 
-interface HomeProps {
-  children?: React.ReactNode
-}
-
-export function Home({ children }: HomeProps) {
-  return <Container>{children}</Container>
+export function Home() {
+  return (
+    <Container>
+      <Profile />
+    </Container>
+  )
 }

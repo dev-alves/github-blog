@@ -1,21 +1,19 @@
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/theme/default'
 import { GlobalStyle } from './styles/global'
-import { Home } from './pages/Home'
-import { Header } from './components/Header'
-import { Profile } from './pages/Home/Profile'
 import { UserProvider } from './contexts/UserContext'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './Routes'
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <UserProvider>
+          <Router />
+        </UserProvider>
+      </BrowserRouter>
       <GlobalStyle />
-      <Header />
-      <UserProvider>
-        <Home>
-          <Profile />
-        </Home>
-      </UserProvider>
     </ThemeProvider>
   )
 }
