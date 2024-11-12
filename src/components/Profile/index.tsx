@@ -26,20 +26,22 @@ export function Profile() {
       <PersonalInfo>
         <h2>{name}</h2>
         <p>{bio}</p>
-        <PersonalFooterInfo>
-          <div>
-            <FontAwesomeIcon icon={faGithub} fontSize={18} />
-            <span>{login}</span>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faBuilding} fontSize={18} />
-            <span>{company}</span>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faUserGroup} fontSize={18} />
-            <span>{followers} seguidores</span>
-          </div>
-        </PersonalFooterInfo>
+        <div>
+          <PersonalFooterInfo>
+            <div>
+              <FontAwesomeIcon icon={faGithub} fontSize={18} />
+              <span>{login}</span>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faBuilding} fontSize={18} />
+              <span>{company}</span>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faUserGroup} fontSize={18} />
+              <span>{followers} seguidores</span>
+            </div>
+          </PersonalFooterInfo>
+        </div>
       </PersonalInfo>
       <RepositoryLink>
         <a href={url}>

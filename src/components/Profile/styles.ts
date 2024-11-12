@@ -28,8 +28,6 @@ export const Container = styled.div`
 export const PersonalInfo = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  position: relative;
 
   h2 {
     color: ${(props) => props.theme['base-title']};
@@ -45,8 +43,17 @@ export const PersonalInfo = styled.section`
     color: ${(props) => props.theme['base-text']};
     font-family: ${(props) => props.theme.stylesText['base-title-m'].fontFamily},
       sans-serif;
-    margin-bottom: 2.4375rem;
+    margin-bottom: 1.4375rem;
   }
+  
+  & > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  
+}
 `
 
 export const RepositoryLink = styled.div`
@@ -69,8 +76,7 @@ export const RepositoryLink = styled.div`
 export const PersonalFooterInfo = styled.footer`
   display: flex;
   flex-direction: row;
-  position: absolute;
-  bottom: 0;
+  width: 100%;
 
   div:nth-child(2) {
     margin: 0 24px;
