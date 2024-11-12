@@ -26,7 +26,6 @@ export function Profile() {
       <PersonalInfo>
         <h2>{name}</h2>
         <p>{bio}</p>
-        <div></div>
         <PersonalFooterInfo>
           <div>
             <FontAwesomeIcon icon={faGithub} fontSize={18} />

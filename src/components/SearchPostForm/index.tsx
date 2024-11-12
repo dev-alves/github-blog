@@ -1,5 +1,5 @@
 import { Container } from './styles'
-import { InputText } from '../../../components/InputText'
+import { InputText } from '../InputText'
 import { Controller, useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
