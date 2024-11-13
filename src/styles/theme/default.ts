@@ -22,6 +22,16 @@ export const defaultTheme = {
       size: '16px',
       lineHeight: '130%',
     },
+    'base-title-s': {
+      fontFamily: 'Nunito',
+      size: '18px',
+      lineHeight: '160%',
+    },
+    'base-text-s': {
+      fontFamily: 'Nunito',
+      size: '14px',
+      lineHeight: '160%',
+    },
     link: {
       fontFamily: 'Nunito',
       size: '12px',

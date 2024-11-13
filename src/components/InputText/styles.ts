@@ -17,4 +17,8 @@ export const Input = styled.input`
     font-size: 1rem;
     color: ${(props) => props.theme['base-label']};
   }
+
+  &:focus {
+    border-color: ${(props) => props.theme['brand-blue']};
+  }
 `
