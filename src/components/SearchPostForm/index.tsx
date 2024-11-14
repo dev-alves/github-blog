@@ -1,9 +1,12 @@
 import { Container } from './styles'
 import { InputText } from '../InputText'
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/UserContext'
 
 export function SearchPost() {
-  function handleOnChangeInputValue(value: string) {
-    console.log(value)
+  const { login, getPosts } = useContext(UserContext)
+  async function handleOnChangeInputValue(value: string) {
+    await getPosts(value)
   }
 
   return (
