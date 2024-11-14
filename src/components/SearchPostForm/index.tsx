@@ -4,9 +4,9 @@ import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 
 export function SearchPost() {
-  const { login, getPosts } = useContext(UserContext)
-  async function handleOnChangeInputValue(value: string) {
-    await getPosts(value)
+  const { getPosts } = useContext(UserContext)
+  function handleOnChangeInputValue(value: string) {
+    getPosts(value)
   }
 
   return (
