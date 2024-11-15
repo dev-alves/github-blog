@@ -8,7 +8,7 @@ export const Container = styled.div`
 `
 
 export const PostContainer = styled.div`
-  margin-top: 3rem;
+  margin: 3rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
