@@ -15,6 +15,14 @@ interface UserStateProps {
   url: string
 }
 
+interface UserPostsProps {
+  title: string
+  body: string
+  created_at: string
+  update_at: string
+  comment: number
+}
+
 interface UserContextType {
   name: string
   login: string
@@ -24,6 +32,7 @@ interface UserContextType {
   bio: string
   url: string
   getPosts: (value: string) => void
+  userPosts: Array<UserPostsProps>
 }
 
 interface GithubUserProps {
@@ -56,6 +65,7 @@ export const UserContext = createContext<UserContextType>({} as UserContextType)
 
 export function UserProvider({ children }: UserContextProviderProps) {
   const [user, setUser] = useState<UserStateProps>({} as UserStateProps)
+  const [userPosts, setUserPosts] = useState<UserPostsProps[]>([])
 
   const getUser = useCallback(async () => {
     const response: GithubUserDataProps = await api.get('/users/dev-alves')
@@ -74,7 +84,18 @@ export function UserProvider({ children }: UserContextProviderProps) {
     const url =
       '/search/issues?q=' + value + `%20repo:${user?.login}/github-blog`
     const response = await api.get<GithubRepoDataProps>(url)
-    console.log(response.data.items)
+    const items = response.data.items
+    setUserPosts(
+      items.map((item) => {
+        return {
+          title: item.title,
+          body: item.body,
+          created_at: item.created_at,
+          update_at: item.updated_at,
+          comment: item.comments,
+        }
+      }),
+    )
   }
 
   useEffect(() => {
@@ -82,7 +103,7 @@ export function UserProvider({ children }: UserContextProviderProps) {
   }, [getUser])
 
   return (
-    <UserContext.Provider value={{ ...user, getPosts }}>
+    <UserContext.Provider value={{ ...user, getPosts, userPosts }}>
       {children}
     </UserContext.Provider>
   )

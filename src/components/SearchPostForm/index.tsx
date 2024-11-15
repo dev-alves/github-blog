@@ -1,19 +1,26 @@
 import { Container } from './styles'
 import { InputText } from '../InputText'
-import { useContext } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 
 export function SearchPost() {
-  const { getPosts } = useContext(UserContext)
+  const { getPosts, userPosts } = useContext(UserContext)
+  const [query, setQuery] = useState('')
+
   function handleOnChangeInputValue(value: string) {
-    getPosts(value)
+    setQuery(value)
+  }
+
+  function handleOnSubmit(event: FormEvent) {
+    event.preventDefault()
+    getPosts(query)
   }
 
   return (
-    <Container>
+    <Container onSubmit={(event: FormEvent) => handleOnSubmit(event)}>
       <div>
         <h3>Publicações</h3>
-        <span>6 publicações</span>
+        {userPosts && <span> {userPosts.length} publicações</span>}
       </div>
       <InputText
         onChange={handleOnChangeInputValue}
