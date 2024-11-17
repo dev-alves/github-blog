@@ -5,6 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    --moz-box-sizing: border-box;    /* Firefox, other Gecko */
   }
 
   :focus {

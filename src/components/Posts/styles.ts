@@ -38,4 +38,9 @@ export const Container = styled.div`
     font-family: ${(props) => props.theme.stylesText['base-title-m'].fontFamily},
       sans-serif;
   }
+
+  &:hover {
+    outline: 1px solid ${(props) => props.theme['base-label']};
+    cursor: pointer;
+  }
 `

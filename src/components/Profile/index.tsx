@@ -1,18 +1,9 @@
-import {
-  Container,
-  PersonalFooterInfo,
-  PersonalInfo,
-  RepositoryLink,
-} from './styles'
+import { Container, PersonalInfo, RepositoryLink } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faArrowUpRightFromSquare,
-  faBuilding,
-  faUserGroup,
-} from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../contexts/UserContext'
 import { useContext } from 'react'
+import { SocialMediaInfo } from '../SocialMediaInfo'
 
 export function Profile() {
   const { name, login, avatar, company, followers, url, bio } =
@@ -27,20 +18,11 @@ export function Profile() {
         <h2>{name}</h2>
         <p>{bio}</p>
         <div>
-          <PersonalFooterInfo>
-            <div>
-              <FontAwesomeIcon icon={faGithub} fontSize={18} />
-              <span>{login}</span>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faBuilding} fontSize={18} />
-              <span>{company}</span>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faUserGroup} fontSize={18} />
-              <span>{followers} seguidores</span>
-            </div>
-          </PersonalFooterInfo>
+          <SocialMediaInfo
+            login={login}
+            company={company}
+            totalFollowers={followers}
+          />
         </div>
       </PersonalInfo>
       <RepositoryLink>
