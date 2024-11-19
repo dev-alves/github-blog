@@ -5,7 +5,7 @@ import { UserContext } from '../../contexts/UserContext'
 import { useContext } from 'react'
 import { SocialMediaInfo } from '../SocialMediaInfo'
 
-export function Profile() {
+export function ProfileHeader() {
   const { name, login, avatar, company, followers, url, bio } =
     useContext(UserContext)
 

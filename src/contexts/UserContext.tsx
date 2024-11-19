@@ -16,11 +16,13 @@ interface UserStateProps {
 }
 
 interface UserPostsProps {
+  id: number
   title: string
   body: string
-  created_at: string
-  update_at: string
-  comment: number
+  createdAt: Date
+  updateAt: Date
+  comments: number
+  url: string
 }
 
 interface UserContextType {
@@ -50,11 +52,13 @@ interface GithubUserDataProps {
 }
 
 interface ItemRepoDataProps {
+  id: number
   title: string
   body: string
   created_at: string
   updated_at: string
   comments: number
+  html_url: string
 }
 
 interface GithubRepoDataProps {
@@ -84,15 +88,18 @@ export function UserProvider({ children }: UserContextProviderProps) {
     const url =
       '/search/issues?q=' + value + `%20repo:${user?.login}/github-blog`
     const response = await api.get<GithubRepoDataProps>(url)
+    console.log(response)
     const items = response.data.items
     setUserPosts(
       items.map((item) => {
         return {
+          id: item.id,
           title: item.title,
           body: item.body,
-          created_at: item.created_at,
-          update_at: item.updated_at,
-          comment: item.comments,
+          createdAt: new Date(item.created_at),
+          updateAt: new Date(item.updated_at),
+          comments: item.comments,
+          url: item.html_url,
         }
       }),
     )

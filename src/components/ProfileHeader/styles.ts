@@ -25,7 +25,7 @@ export const Container = styled.div`
   }
 `
 
-export const PersonalInfo = styled.section`
+export const PersonalInfo = styled.div`
   display: flex;
   flex-direction: column;
 
