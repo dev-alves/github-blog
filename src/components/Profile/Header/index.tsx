@@ -1,9 +1,9 @@
 import { Container, PersonalInfo, RepositoryLink } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { UserContext } from '../../contexts/UserContext'
+import { UserContext } from '../../../contexts/UserContext'
 import { useContext } from 'react'
-import { SocialMediaInfo } from '../SocialMediaInfo'
+import { ProfileSocialMedia } from '../SocialMedia'
 
 export function ProfileHeader() {
   const { name, login, avatar, company, followers, url, bio } =
@@ -18,7 +18,7 @@ export function ProfileHeader() {
         <h2>{name}</h2>
         <p>{bio}</p>
         <div>
-          <SocialMediaInfo
+          <ProfileSocialMedia
             login={login}
             company={company}
             totalFollowers={followers}

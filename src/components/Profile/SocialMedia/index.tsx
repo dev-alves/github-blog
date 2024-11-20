@@ -9,7 +9,7 @@ interface PersonalInfoProps {
   totalFollowers: number
 }
 
-export function SocialMediaInfo({
+export function ProfileSocialMedia({
   login,
   company,
   totalFollowers,

@@ -1,34 +1,51 @@
-import { Container } from './styles'
+import { Container, Detail, NavigateRepositoryContainer } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faComment, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
-import { fromDistance } from '../../../lib/dateFns'
+import {
+  faArrowUpRightFromSquare,
+  faChevronLeft,
+} from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+import { PostInformations } from '../Informations'
 
-interface PostHeaderProps {
-  login: string
+interface PostInfoProps {
+  url: string
+  title: string
   createdAt: Date
-  totalComments: number
+  comments: number
 }
 
-export function PostHeader({
-  login,
-  createdAt,
-  totalComments,
-}: PostHeaderProps) {
+interface PostDetailProps {
+  login: string
+  post: PostInfoProps
+}
+
+export function PostHeader({ login, post }: PostDetailProps) {
   return (
     <Container>
-      <div>
-        <FontAwesomeIcon icon={faGithub} fontSize={18} />
-        <span>{login}</span>
-      </div>
-      <div>
-        <FontAwesomeIcon icon={faCalendarDay} fontSize={18} />
-        <span>{fromDistance(createdAt)}</span>
-      </div>
-      <div>
-        <FontAwesomeIcon icon={faComment} fontSize={18} />
-        <span>{totalComments || 'Não há comentários'} </span>
-      </div>
+      <NavigateRepositoryContainer>
+        <div>
+          <Link to={'/'}>
+            <FontAwesomeIcon icon={faChevronLeft} fontSize={12} />
+            <span>VOLTAR</span>
+          </Link>
+        </div>
+        <div>
+          <a href={post?.url}>
+            VER NO GITHUB
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} fontSize={12} />
+          </a>
+        </div>
+      </NavigateRepositoryContainer>
+      <Detail>
+        <h2>{post?.title}</h2>
+        <div>
+          <PostInformations
+            login={login}
+            createdAt={post?.createdAt}
+            totalComments={post?.comments}
+          />
+        </div>
+      </Detail>
     </Container>
   )
 }

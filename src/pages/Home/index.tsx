@@ -1,5 +1,5 @@
 import { Container, PostContainer } from './styles'
-import { ProfileHeader } from '../../components/ProfileHeader'
+import { ProfileHeader } from '../../components/Profile/Header'
 import { SearchPost } from '../../components/SearchPostForm'
 import { Posts } from '../../components/Posts'
 
