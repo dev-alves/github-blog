@@ -33,6 +33,7 @@ export const Container = styled.section`
   }
 
   p {
+    overflow-wrap: break-word;
     display: inline-block;
     color: ${(props) => props.theme['base-text']};
     font-family: ${(props) => props.theme.stylesText['base-title-m'].fontFamily},

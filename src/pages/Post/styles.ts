@@ -6,6 +6,18 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 54rem;
 
+  img {
+    max-height: 54rem;
+    max-width: 54rem;
+  }
+
+  a {
+    color: ${(props) => props.theme.blue};
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+
   & > div:nth-child(2) {
     padding: 0 2rem;
     p {

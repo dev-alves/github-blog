@@ -52,7 +52,7 @@ interface GithubUserDataProps {
 }
 
 interface ItemRepoDataProps {
-  id: number
+  number: number
   title: string
   body: string
   created_at: string
@@ -93,7 +93,7 @@ export function UserProvider({ children }: UserContextProviderProps) {
     setUserPosts(
       items.map((item) => {
         return {
-          id: item.id,
+          id: item.number,
           title: item.title,
           body: item.body,
           createdAt: new Date(item.created_at),
